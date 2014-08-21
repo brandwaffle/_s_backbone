@@ -139,7 +139,10 @@ function _s_backbone_scripts() {
 			$local['page'] = get_query_var( 'paged' );
 		}
 
-		wp_localize_script( '_s_backbone-loop', 'settings', $local );
+		//set the local data in a namespaced format so we can pass it into the closure without using the global var "settings"
+		$local_js['loop']['settings'] = $local;
+
+		wp_localize_script( '_s_backbone-loop', '_s_backbone', $local_js );
 	}
 }
 add_action( 'wp_enqueue_scripts', '_s_backbone_scripts' );

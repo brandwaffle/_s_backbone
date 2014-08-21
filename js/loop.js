@@ -189,4 +189,4 @@
 		}
 	});
 
-})( jQuery, Backbone, _, settings );
+})( jQuery, Backbone, _, _s_backbone.loop.settings );
